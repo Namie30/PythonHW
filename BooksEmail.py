@@ -10,7 +10,7 @@ class Book:
 class BookManager:
     def __init__(self):
         self.books = [
-            Book("The Great Gatsby", "F. Scott Fitzgerald", 1925),
+            Book("The Knight in the Panther's Skin", "Shota Rustaveli", 1200),
             Book("To Kill a Mockingbird", "Harper Lee", 1960),
             Book("1984", "George Orwell", 1949),
             Book("Pride and Prejudice", "Jane Austen", 1813)
@@ -37,7 +37,7 @@ class BookManager:
     def notify_admin(self, customer_name, customer_phone, customer_email, book_title):
         url = "https://api.web3forms.com/submit"
         data = {
-            "access_key": "6dd0df90-9858-4fe6-b4bf-54fe019181ae",
+            "access_key": "",
             "email": customer_email,
             "message": f"Customer {customer_name} has ordered '{book_title}'. Contact them at {customer_phone}.",
         }
@@ -47,6 +47,7 @@ class BookManager:
         else:
             print(f"Failed to send notification: {response.status_code}")
             print(response.text)
+
 class BookApp:
     def __init__(self):
         self.manager = BookManager()
